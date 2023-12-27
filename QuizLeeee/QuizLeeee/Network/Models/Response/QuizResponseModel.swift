@@ -1,5 +1,5 @@
 //
-//  Response.swift
+//  QuizResponseModel.swift
 //  QuizLeeee
 //
 //  Created by Barış Şaraldı on 27.12.2023.
