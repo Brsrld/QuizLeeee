@@ -16,6 +16,13 @@
 		A503D5CF2B3D9AA300AB8E64 /* QuizGameRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A503D5CE2B3D9AA300AB8E64 /* QuizGameRouter.swift */; };
 		A5AEDB2E2B3DF9C4005E83D0 /* StartQuizUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5AEDB2D2B3DF9C4005E83D0 /* StartQuizUITests.swift */; };
 		A5AEDB392B3DFB9A005E83D0 /* QuizGameUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5AEDB382B3DFB9A005E83D0 /* QuizGameUITests.swift */; };
+		A5AEDB5D2B3E019D005E83D0 /* MockQuizGameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5AEDB522B3E019D005E83D0 /* MockQuizGameView.swift */; };
+		A5AEDB5E2B3E019D005E83D0 /* MockStartQuizView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5AEDB542B3E019D005E83D0 /* MockStartQuizView.swift */; };
+		A5AEDB5F2B3E019D005E83D0 /* Mockable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5AEDB572B3E019D005E83D0 /* Mockable.swift */; };
+		A5AEDB602B3E019D005E83D0 /* HttpClientTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5AEDB582B3E019D005E83D0 /* HttpClientTest.swift */; };
+		A5AEDB612B3E019D005E83D0 /* QuestionResponse.json in Resources */ = {isa = PBXBuildFile; fileRef = A5AEDB592B3E019D005E83D0 /* QuestionResponse.json */; };
+		A5AEDB622B3E019D005E83D0 /* MockHttpClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5AEDB5B2B3E019D005E83D0 /* MockHttpClient.swift */; };
+		A5AEDB632B3E019D005E83D0 /* MockURLProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5AEDB5C2B3E019D005E83D0 /* MockURLProtocol.swift */; };
 		A5AEE89F2B3C774400959BCF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5AEE89E2B3C774400959BCF /* AppDelegate.swift */; };
 		A5AEE8A12B3C774400959BCF /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5AEE8A02B3C774400959BCF /* SceneDelegate.swift */; };
 		A5AEE8A82B3C774600959BCF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A5AEE8A72B3C774600959BCF /* Assets.xcassets */; };
@@ -75,6 +82,13 @@
 		A5AEDB2B2B3DF9C4005E83D0 /* QuizLeeeeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = QuizLeeeeUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A5AEDB2D2B3DF9C4005E83D0 /* StartQuizUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartQuizUITests.swift; sourceTree = "<group>"; };
 		A5AEDB382B3DFB9A005E83D0 /* QuizGameUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizGameUITests.swift; sourceTree = "<group>"; };
+		A5AEDB522B3E019D005E83D0 /* MockQuizGameView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockQuizGameView.swift; sourceTree = "<group>"; };
+		A5AEDB542B3E019D005E83D0 /* MockStartQuizView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockStartQuizView.swift; sourceTree = "<group>"; };
+		A5AEDB572B3E019D005E83D0 /* Mockable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Mockable.swift; sourceTree = "<group>"; };
+		A5AEDB582B3E019D005E83D0 /* HttpClientTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HttpClientTest.swift; sourceTree = "<group>"; };
+		A5AEDB592B3E019D005E83D0 /* QuestionResponse.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = QuestionResponse.json; sourceTree = "<group>"; };
+		A5AEDB5B2B3E019D005E83D0 /* MockHttpClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockHttpClient.swift; sourceTree = "<group>"; };
+		A5AEDB5C2B3E019D005E83D0 /* MockURLProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockURLProtocol.swift; sourceTree = "<group>"; };
 		A5AEE89B2B3C774400959BCF /* QuizLeeee.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QuizLeeee.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A5AEE89E2B3C774400959BCF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A5AEE8A02B3C774400959BCF /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -174,9 +188,73 @@
 			name = QuizGame;
 			sourceTree = "<group>";
 		};
+		A5AEDB4F2B3E019C005E83D0 /* QuizLeeeeTests */ = {
+			isa = PBXGroup;
+			children = (
+				A5AEDB502B3E019C005E83D0 /* Screens */,
+				A5AEDB552B3E019D005E83D0 /* NetworkTest */,
+			);
+			name = QuizLeeeeTests;
+			path = ../../Desktop/QuizLeeeeTests;
+			sourceTree = "<group>";
+		};
+		A5AEDB502B3E019C005E83D0 /* Screens */ = {
+			isa = PBXGroup;
+			children = (
+				A5AEDB512B3E019D005E83D0 /* QuizGameView */,
+				A5AEDB532B3E019D005E83D0 /* StartQuizView */,
+			);
+			path = Screens;
+			sourceTree = "<group>";
+		};
+		A5AEDB512B3E019D005E83D0 /* QuizGameView */ = {
+			isa = PBXGroup;
+			children = (
+				A5AEDB522B3E019D005E83D0 /* MockQuizGameView.swift */,
+			);
+			path = QuizGameView;
+			sourceTree = "<group>";
+		};
+		A5AEDB532B3E019D005E83D0 /* StartQuizView */ = {
+			isa = PBXGroup;
+			children = (
+				A5AEDB542B3E019D005E83D0 /* MockStartQuizView.swift */,
+			);
+			path = StartQuizView;
+			sourceTree = "<group>";
+		};
+		A5AEDB552B3E019D005E83D0 /* NetworkTest */ = {
+			isa = PBXGroup;
+			children = (
+				A5AEDB582B3E019D005E83D0 /* HttpClientTest.swift */,
+				A5AEDB5A2B3E019D005E83D0 /* HtpClient */,
+				A5AEDB5C2B3E019D005E83D0 /* MockURLProtocol.swift */,
+				A5AEDB562B3E019D005E83D0 /* MockData */,
+			);
+			path = NetworkTest;
+			sourceTree = "<group>";
+		};
+		A5AEDB562B3E019D005E83D0 /* MockData */ = {
+			isa = PBXGroup;
+			children = (
+				A5AEDB572B3E019D005E83D0 /* Mockable.swift */,
+				A5AEDB592B3E019D005E83D0 /* QuestionResponse.json */,
+			);
+			path = MockData;
+			sourceTree = "<group>";
+		};
+		A5AEDB5A2B3E019D005E83D0 /* HtpClient */ = {
+			isa = PBXGroup;
+			children = (
+				A5AEDB5B2B3E019D005E83D0 /* MockHttpClient.swift */,
+			);
+			path = HtpClient;
+			sourceTree = "<group>";
+		};
 		A5AEE8922B3C774400959BCF = {
 			isa = PBXGroup;
 			children = (
+				A5AEDB4F2B3E019C005E83D0 /* QuizLeeeeTests */,
 				A5AEE89D2B3C774400959BCF /* QuizLeeee */,
 				A5AEDB2C2B3DF9C4005E83D0 /* QuizLeeeeUITests */,
 				A5AEE89C2B3C774400959BCF /* Products */,
@@ -456,6 +534,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A5AEDB612B3E019D005E83D0 /* QuestionResponse.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -484,6 +563,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A5AEDB5E2B3E019D005E83D0 /* MockStartQuizView.swift in Sources */,
+				A5AEDB622B3E019D005E83D0 /* MockHttpClient.swift in Sources */,
+				A5AEDB5F2B3E019D005E83D0 /* Mockable.swift in Sources */,
+				A5AEDB632B3E019D005E83D0 /* MockURLProtocol.swift in Sources */,
+				A5AEDB602B3E019D005E83D0 /* HttpClientTest.swift in Sources */,
+				A5AEDB5D2B3E019D005E83D0 /* MockQuizGameView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
