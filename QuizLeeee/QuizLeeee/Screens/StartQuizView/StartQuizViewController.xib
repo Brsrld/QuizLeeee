@@ -28,6 +28,9 @@
                             <subviews>
                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="b0S-un-3rt">
                                     <rect key="frame" x="0.0" y="0.0" width="361" height="119.66666666666667"/>
+                                    <accessibility key="accessibilityConfiguration" identifier="StartImage">
+                                        <bool key="isElement" value="YES"/>
+                                    </accessibility>
                                 </imageView>
                             </subviews>
                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -45,6 +48,7 @@
                                     <rect key="frame" x="126.33333333333334" y="15" width="108.33333333333334" height="33.666666666666664"/>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <accessibility key="accessibilityConfiguration" identifier="startLabel"/>
                                     <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
@@ -64,6 +68,7 @@
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3PA-Rt-l1I">
                                     <rect key="frame" x="0.0" y="0.0" width="361" height="48"/>
                                     <color key="backgroundColor" systemColor="systemCyanColor"/>
+                                    <accessibility key="accessibilityConfiguration" identifier="startButton"/>
                                     <state key="normal" title="Button"/>
                                     <buttonConfiguration key="configuration" style="plain" title="START">
                                         <fontDescription key="titleFontDescription" style="UICTFontTextStyleSubhead"/>
