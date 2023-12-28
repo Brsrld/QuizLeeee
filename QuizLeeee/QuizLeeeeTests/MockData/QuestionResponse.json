@@ -1,0 +1,16 @@
+{
+    "questions": [
+        {
+            "question": "Dünyanın 7 Harikası’ndan biri olan İskenderiye Feneri nerede bulunur?",
+            "answers": {
+                "A": "Libya",
+                "B": "Yemen",
+                "C": "Sudan",
+                "D": "Mısır"
+            },
+            "questionImageUrl": null,
+            "correctAnswer": "D",
+            "score": 200
+        }
+    ]
+}
