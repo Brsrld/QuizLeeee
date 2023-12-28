@@ -15,14 +15,17 @@ protocol StartQuizViewInteractorProtocol {
 
 // MARK: - StartQuizViewInteractor
 final class StartQuizViewInteractor {
+    
     var presenter: StartQuizViewPresenterProtocol?
   
 }
 
 // MARK: - StartQuizViewInteractor StartQuizViewInteractorProtocol Extension
 extension StartQuizViewInteractor: StartQuizViewInteractorProtocol {
+    
     func fetchQuestion() {
-        guard let score = UserDefaultsHelper.getData(type: Int.self, forKey: .score) else { return }
+        guard let score = UserDefaultsHelper.getData(type: Int.self,
+                                                     forKey: .score) else { return }
         presenter?.handleHighScore(score: score)
     }
 }

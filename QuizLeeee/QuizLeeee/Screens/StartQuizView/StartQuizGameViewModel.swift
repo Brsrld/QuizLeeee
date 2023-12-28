@@ -14,6 +14,7 @@ protocol StartQuizGameViewModelProtocol {
 
 // MARK: - StartQuizGameViewModel
 final class StartQuizGameViewModel {
+    
     var userHighScore: Int
     
     init(userHighScore: Int) {
@@ -23,6 +24,7 @@ final class StartQuizGameViewModel {
 
 // MARK: - StartQuizGameViewModel StartQuizGameViewModelProtocol Extension
 extension StartQuizGameViewModel: StartQuizGameViewModelProtocol {
+    
     var highScore: Int {
         userHighScore
     }

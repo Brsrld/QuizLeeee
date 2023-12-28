@@ -15,6 +15,7 @@ protocol StartQuizViewPresenterProtocol {
 
 // MARK: - StartQuizViewPresenter
 final class StartQuizViewPresenter {
+    
     let interactor: StartQuizViewInteractorProtocol
     let view: StartQuizViewProtocol
     
@@ -27,6 +28,7 @@ final class StartQuizViewPresenter {
 
 // MARK: - StartQuizViewPresenter StartQuizViewPresenterProtocol Extension
 extension StartQuizViewPresenter: StartQuizViewPresenterProtocol {
+    
     func handleHighScore(score: Int) {
         let viewModel = StartQuizGameViewModel(userHighScore: score)
         view.handleHighScore(viewModel)

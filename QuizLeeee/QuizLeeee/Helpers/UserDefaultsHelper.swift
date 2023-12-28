@@ -9,6 +9,7 @@ import Foundation
 
 // MARK: - UserDefaultsHelper
 final class UserDefaultsHelper {
+    
     static func setData<T>(value: T, key: UserDefaultKeys) {
         let defaults = UserDefaults.standard
         defaults.set(value, forKey: key.rawValue)
@@ -24,6 +25,7 @@ final class UserDefaultsHelper {
     }
 }
 
+// MARK: - UserDefaultKeys
 enum UserDefaultKeys: String, CaseIterable {
     case score
 }

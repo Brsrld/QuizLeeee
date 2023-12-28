@@ -15,6 +15,7 @@ protocol QuizGameInteractorProtocol {
 
 // MARK: - QuizGameInteractor
 final class QuizGameInteractor {
+    
     var presenter: QuizGamePresenterProtocol?
     private let service: QuizServiceable
     

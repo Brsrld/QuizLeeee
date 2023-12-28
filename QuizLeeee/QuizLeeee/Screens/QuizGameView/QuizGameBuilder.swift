@@ -10,6 +10,7 @@ import Foundation
 // MARK: - QuizGameBuilder
 final class QuizGameBuilder {
     static func build(coordinator: Coordinator) -> QuizGameViewController {
+        
         let httpClient = HttpClient()
         let interactor = QuizGameInteractor(httpClient: httpClient)
         let viewController = QuizGameViewController()

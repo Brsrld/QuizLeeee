@@ -19,6 +19,7 @@ protocol QuizGamePresenterProtocol {
 
 // MARK: - QuizGamePresenter
 final class QuizGamePresenter {
+    
     let interactor: QuizGameInteractorProtocol
     let view: QuizGameViewProtocol
     var viewModel:QuizGameViewModel?
@@ -31,7 +32,8 @@ final class QuizGamePresenter {
 }
 
 // MARK: - QuizGamePresenter QuizGamePresenter Extension
-extension QuizGamePresenter: QuizGamePresenterProtocol{
+extension QuizGamePresenter: QuizGamePresenterProtocol {
+    
     func fetchQuestions() {
         interactor.fetchQuestion()
     }
@@ -63,6 +65,7 @@ extension QuizGamePresenter: QuizGamePresenterProtocol{
 
 // MARK: - QuizGamePresenter QuizGameViewModelOutput Extension
 extension QuizGamePresenter: QuizGameViewModelOutput {
+    
     func gameOver() {
         view.gameOver()
     }

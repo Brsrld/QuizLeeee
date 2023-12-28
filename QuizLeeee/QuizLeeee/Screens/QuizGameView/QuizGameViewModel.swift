@@ -23,6 +23,7 @@ protocol QuizGameViewModelOutput: AnyObject {
 
 // MARK: - QuizGameViewModel
 final class QuizGameViewModel {
+    
     private var questions:[Question] = []
     var questionIndex: Int = 0
     var totalPoint: Int = 0
@@ -35,7 +36,8 @@ final class QuizGameViewModel {
     }
     
     func saveScore() {
-        guard let highScore = UserDefaultsHelper.getData(type: Int.self, forKey: .score) else { return }
+        guard let highScore = UserDefaultsHelper.getData(type: Int.self, 
+                                                         forKey: .score) else { return }
         if highScore < totalPoint {
             UserDefaultsHelper.setData(value: totalPoint,
                                        key: .score)
@@ -73,6 +75,7 @@ final class QuizGameViewModel {
 
 // MARK: - QuizGameViewModel QuizGameViewModelProtocol Extension
 extension QuizGameViewModel: QuizGameViewModelProtocol {
+    
     var question: [Question] {
         questions
     }

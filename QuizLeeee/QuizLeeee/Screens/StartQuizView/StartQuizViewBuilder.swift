@@ -11,6 +11,7 @@ import UIKit
 // MARK: - StartQuizViewBuilder
 final class StartQuizViewBuilder {
     static func build(coordinator: Coordinator) -> StartQuizViewController {
+        
         let viewController = StartQuizViewController()
         let interactor = StartQuizViewInteractor()
         let router = StartQuizViewRouter(coordinator: coordinator)
