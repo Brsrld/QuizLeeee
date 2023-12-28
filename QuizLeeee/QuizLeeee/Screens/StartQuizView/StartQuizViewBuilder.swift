@@ -6,11 +6,20 @@
 //
 
 import Foundation
+import UIKit
 
 final class StartQuizViewBuilder {
-    static func build() -> StartQuizViewController {
+    static func build(coordinator: Coordinator) -> StartQuizViewController {
         let viewController = StartQuizViewController()
-        viewController.router = StartQuizViewRouter(view: QuizGameViewController())
+        let interactor = StartQuizViewInteractor()
+        let router = StartQuizViewRouter(coordinator: coordinator)
+        let presenter = StartQuizViewPresenter(interactor: interactor,
+                                               view: viewController)
+        
+        viewController.router = router
+        viewController.presenter = presenter
+        interactor.presenter = presenter
+        
         return viewController
     }
 }

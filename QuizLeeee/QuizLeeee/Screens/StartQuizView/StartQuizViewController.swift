@@ -7,23 +7,26 @@
 
 import UIKit
 
+protocol StartQuizViewProtocol {
+    func handleHighScore(_ output: StartQuizGameViewModelProtocol)
+}
+
 final class StartQuizViewController: UIViewController {
     
     @IBOutlet private weak var imageView: UIImageView!
     @IBOutlet private weak var scoreLabel: UILabel!
-    var router: StartQuizViewRouter?
     
-    init() {
-        super.init(nibName: nil, bundle: nil)
-    }
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
+    var router: StartQuizViewRouterProtocol?
+    var presenter: StartQuizViewPresenterProtocol?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         prepareUI()
+        presenter?.fetchHighScore()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        presenter?.fetchHighScore()
     }
     
     private func prepareUI() {
@@ -32,6 +35,14 @@ final class StartQuizViewController: UIViewController {
     }
     
     @IBAction private func StartButton(_ sender: Any) {
-        router?.navigate()
+        guard let coordinator = router?.coordinator else { return }
+        let viewcontroller = QuizGameBuilder.build(coordinator: coordinator)
+        router?.navigate(viewController: viewcontroller)
+    }
+}
+
+extension StartQuizViewController: StartQuizViewProtocol {
+    func handleHighScore(_ output: StartQuizGameViewModelProtocol) {
+        scoreLabel.text = "En yüksek puan \(output.highScore) puan"
     }
 }

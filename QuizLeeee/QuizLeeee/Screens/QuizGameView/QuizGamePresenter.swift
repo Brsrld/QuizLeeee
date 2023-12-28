@@ -17,7 +17,7 @@ protocol QuizGamePresenterProtocol {
 }
 
 final class QuizGamePresenter {
-    var interactor: QuizGameInteractorProtocol
+    let interactor: QuizGameInteractorProtocol
     let view: QuizGameViewProtocol
     var viewModel:QuizGameViewModel?
     

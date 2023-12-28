@@ -11,6 +11,7 @@ protocol QuizGameViewModelProtocol {
     var question: [Question] { get }
     var questionIndex: Int { get }
     var totalPoint: Int { get }
+    func saveScore()
 }
 
 protocol QuizGameViewModelOutput: AnyObject {
@@ -24,10 +25,18 @@ final class QuizGameViewModel {
     var totalPoint: Int = 0
     weak var delegate: QuizGameViewModelOutput?
     
-    init(questions: [Question], 
+    init(questions: [Question],
          delegate: QuizGameViewModelOutput?) {
         self.questions = questions
         self.delegate = delegate
+    }
+    
+    func saveScore() {
+        guard let highScore = UserDefaultsHelper.getData(type: Int.self, forKey: .score) else { return }
+        if highScore < totalPoint {
+            UserDefaultsHelper.setData(value: totalPoint,
+                                       key: .score)
+        }
     }
     
     func calculateGameFeatures(tag:Int) {
@@ -60,7 +69,7 @@ final class QuizGameViewModel {
 }
 
 extension QuizGameViewModel: QuizGameViewModelProtocol {
-
+    
     var question: [Question] {
         questions
     }

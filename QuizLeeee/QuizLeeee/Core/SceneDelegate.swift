@@ -14,10 +14,16 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         
-        guard let windowsScene = (scene as? UIWindowScene) else { return }
-        window = UIWindow(windowScene: windowsScene)
-        window?.rootViewController =  StartQuizViewBuilder.build()
+        guard let windowScene = (scene as? UIWindowScene) else { return }
+        let nav = UINavigationController()
+        let coordinator = Coordinator()
+        coordinator.navigationController = nav
+        
+        window = UIWindow(windowScene: windowScene)
+        window?.rootViewController = nav
         window?.makeKeyAndVisible()
+        
+        coordinator.start()
         
         if #available(iOS 13.0, *) {
             window?.overrideUserInterfaceStyle = .light

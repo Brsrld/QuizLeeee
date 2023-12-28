@@ -31,9 +31,10 @@ final class QuizGameViewController: UIViewController {
     @IBOutlet private weak var buttonC: UIButton!
     @IBOutlet private weak var buttonD: UIButton!
     
-     var presenter: QuizGamePresenterProtocol?
-     var viewModel: QuizGameViewModelProtocol?
-
+    var presenter: QuizGamePresenterProtocol?
+    var viewModel: QuizGameViewModelProtocol?
+    var router: QuizGameRouterProtocol?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         callService()
@@ -64,7 +65,7 @@ final class QuizGameViewController: UIViewController {
                   let totalQuestion = self?.viewModel?.question.count,
                   let totalPoint = self?.viewModel?.totalPoint,
                   let point = self?.viewModel?.question[index].score else { return }
-       
+            
             self?.totalQuestionAndPointsLabel.text = "Soru \(index + 1)/\(String(describing:totalQuestion)) total puaniniz: \(String(describing:totalPoint))"
             self?.questionLabel.text = self?.viewModel?.question[index].question
             self?.singleQuestionPoint.text = String(describing:point) + " puan"
@@ -74,7 +75,7 @@ final class QuizGameViewController: UIViewController {
             self?.buttonC.setTitle(self?.viewModel?.question[index].answers?.c, for: .normal)
             self?.buttonD.setTitle(self?.viewModel?.question[index].answers?.d, for: .normal)
             
-        
+            
             if let imageURL = self?.viewModel?.question[index].questionImageURL {
                 self?.questionImage.kf.setImage(with: URL(string: imageURL))
             } else {
@@ -89,10 +90,12 @@ final class QuizGameViewController: UIViewController {
 }
 
 extension QuizGameViewController: QuizGameViewProtocol {
+    
     func gameOver() {
         guard let score = viewModel?.totalPoint else { return }
+        viewModel?.saveScore()
         alert(message: "Your total score: \(score)", title: "Game Over") { [weak self] _ in
-           /// self?.coordinator?.navigationController?.popViewController(animated: true)
+            self?.router?.pop()
         }
     }
     
@@ -103,7 +106,7 @@ extension QuizGameViewController: QuizGameViewProtocol {
     func calculateQuestions(tag: Int, _ output: QuizGameViewModel) {
         output.calculateGameFeatures(tag: tag)
     }
-
+    
     func loading() {
         DispatchQueue.main.async { [weak self] in
             self?.view.activityStartAnimating()

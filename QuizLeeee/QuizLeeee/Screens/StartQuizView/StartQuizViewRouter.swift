@@ -9,18 +9,19 @@ import Foundation
 import UIKit
 
 protocol StartQuizViewRouterProtocol {
-    func navigate()
+    func navigate(viewController: UIViewController)
+    var coordinator: Coordinator { get }
 }
 
 final class StartQuizViewRouter: StartQuizViewRouterProtocol {
-    let view: UIViewController
     
-    init( view: UIViewController) {
-        self.view = view
+    var coordinator: Coordinator
+    
+    init(coordinator: Coordinator) {
+        self.coordinator = coordinator
     }
     
-    func navigate() {
-        let viewController = QuizGameBuilder.build()
-        view.navigationController?.pushViewController(viewController, animated: true)
+    func navigate(viewController: UIViewController) {
+        coordinator.eventOccurred(with: viewController)
     }
 }
