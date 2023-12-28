@@ -7,6 +7,7 @@
 
 import Foundation
 
+// MARK: - QuizGamePresenterProtocol
 protocol QuizGamePresenterProtocol {
     func handleError(error: String)
     func handleQuestion(questions: [Question])
@@ -16,6 +17,7 @@ protocol QuizGamePresenterProtocol {
     func fetchQuestions()
 }
 
+// MARK: - QuizGamePresenter
 final class QuizGamePresenter {
     let interactor: QuizGameInteractorProtocol
     let view: QuizGameViewProtocol
@@ -28,6 +30,7 @@ final class QuizGamePresenter {
     }
 }
 
+// MARK: - QuizGamePresenter QuizGamePresenter Extension
 extension QuizGamePresenter: QuizGamePresenterProtocol{
     func fetchQuestions() {
         interactor.fetchQuestion()
@@ -58,6 +61,7 @@ extension QuizGamePresenter: QuizGamePresenterProtocol{
     }
 }
 
+// MARK: - QuizGamePresenter QuizGameViewModelOutput Extension
 extension QuizGamePresenter: QuizGameViewModelOutput {
     func gameOver() {
         view.gameOver()

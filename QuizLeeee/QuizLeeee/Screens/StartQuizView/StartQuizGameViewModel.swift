@@ -7,10 +7,12 @@
 
 import Foundation
 
+// MARK: - StartQuizGameViewModelProtocol
 protocol StartQuizGameViewModelProtocol {
     var highScore: Int { get }
 }
 
+// MARK: - StartQuizGameViewModel
 final class StartQuizGameViewModel {
     var userHighScore: Int
     
@@ -19,7 +21,8 @@ final class StartQuizGameViewModel {
     }
 }
 
-extension StartQuizGameViewModel:StartQuizGameViewModelProtocol {
+// MARK: - StartQuizGameViewModel StartQuizGameViewModelProtocol Extension
+extension StartQuizGameViewModel: StartQuizGameViewModelProtocol {
     var highScore: Int {
         userHighScore
     }

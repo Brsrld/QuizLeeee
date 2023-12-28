@@ -7,11 +7,13 @@
 
 import Foundation
 
+// MARK: - QuizGameInteractorProtocol
 protocol QuizGameInteractorProtocol {
     var presenter: QuizGamePresenterProtocol? { get set }
     func fetchQuestion()
 }
 
+// MARK: - QuizGameInteractor
 final class QuizGameInteractor {
     var presenter: QuizGamePresenterProtocol?
     private let service: QuizServiceable
@@ -21,6 +23,7 @@ final class QuizGameInteractor {
     }
 }
 
+// MARK: - QuizGameInteractor QuizGameInteractorProtocol Extension
 extension QuizGameInteractor: QuizGameInteractorProtocol {
     
     func fetchQuestion() {

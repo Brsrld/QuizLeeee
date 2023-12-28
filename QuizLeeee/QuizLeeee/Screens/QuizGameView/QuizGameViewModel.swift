@@ -7,6 +7,7 @@
 
 import Foundation
 
+// MARK: - QuizGameViewModelProtocol
 protocol QuizGameViewModelProtocol {
     var question: [Question] { get }
     var questionIndex: Int { get }
@@ -14,11 +15,13 @@ protocol QuizGameViewModelProtocol {
     func saveScore()
 }
 
+// MARK: - QuizGameViewModelOutput
 protocol QuizGameViewModelOutput: AnyObject {
     func updateQuestions()
     func gameOver()
 }
 
+// MARK: - QuizGameViewModel
 final class QuizGameViewModel {
     private var questions:[Question] = []
     var questionIndex: Int = 0
@@ -68,8 +71,8 @@ final class QuizGameViewModel {
     }
 }
 
+// MARK: - QuizGameViewModel QuizGameViewModelProtocol Extension
 extension QuizGameViewModel: QuizGameViewModelProtocol {
-    
     var question: [Question] {
         questions
     }

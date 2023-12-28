@@ -7,11 +7,13 @@
 
 import Foundation
 
+// MARK: - QuizGameRouterProtocol
 protocol QuizGameRouterProtocol {
     func pop()
     var coordinator: Coordinator { get }
 }
 
+// MARK: - QuizGameRouter
 final class QuizGameRouter: QuizGameRouterProtocol {
     
     var coordinator: Coordinator

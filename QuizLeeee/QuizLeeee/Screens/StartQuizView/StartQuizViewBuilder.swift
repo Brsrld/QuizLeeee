@@ -8,6 +8,7 @@
 import Foundation
 import UIKit
 
+// MARK: - StartQuizViewBuilder
 final class StartQuizViewBuilder {
     static func build(coordinator: Coordinator) -> StartQuizViewController {
         let viewController = StartQuizViewController()

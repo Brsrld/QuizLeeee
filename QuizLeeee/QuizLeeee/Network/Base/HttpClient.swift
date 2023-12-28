@@ -7,10 +7,12 @@
 
 import Foundation
 
+// MARK: - HTTPClientProtocol
 protocol HTTPClientProtocol {
     func sendRequest<T: Decodable>(endpoint: Endpoint, responseModel: T.Type) async -> Result<T, RequestError>
 }
 
+// MARK: - HttpClient
 class HttpClient: HTTPClientProtocol {
     
     private var urlSession: URLSession?

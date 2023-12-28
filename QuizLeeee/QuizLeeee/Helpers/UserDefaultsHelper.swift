@@ -7,6 +7,7 @@
 
 import Foundation
 
+// MARK: - UserDefaultsHelper
 final class UserDefaultsHelper {
     static func setData<T>(value: T, key: UserDefaultKeys) {
         let defaults = UserDefaults.standard

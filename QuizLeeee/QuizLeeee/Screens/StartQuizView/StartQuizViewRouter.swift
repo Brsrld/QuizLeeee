@@ -8,11 +8,13 @@
 import Foundation
 import UIKit
 
+// MARK: - StartQuizViewRouterProtocol
 protocol StartQuizViewRouterProtocol {
     func navigate(viewController: UIViewController)
     var coordinator: Coordinator { get }
 }
 
+// MARK: - StartQuizViewRouter StartQuizViewRouterProtocol Extension
 final class StartQuizViewRouter: StartQuizViewRouterProtocol {
     
     var coordinator: Coordinator

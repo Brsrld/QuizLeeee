@@ -7,10 +7,12 @@
 
 import UIKit
 
+// MARK: - StartQuizViewProtocol
 protocol StartQuizViewProtocol {
     func handleHighScore(_ output: StartQuizGameViewModelProtocol)
 }
 
+// MARK: - StartQuizViewController
 final class StartQuizViewController: UIViewController {
     
     @IBOutlet private weak var imageView: UIImageView!
@@ -30,7 +32,7 @@ final class StartQuizViewController: UIViewController {
     }
     
     private func prepareUI() {
-        imageView.image = UIImage(named: "hbImage")
+        imageView.image = UIImage(named: Constants.photo.text)
         imageView.contentMode = .scaleAspectFill
     }
     
@@ -41,8 +43,24 @@ final class StartQuizViewController: UIViewController {
     }
 }
 
+// MARK: - StartQuizViewController StartQuizViewProtocol Extension
 extension StartQuizViewController: StartQuizViewProtocol {
     func handleHighScore(_ output: StartQuizGameViewModelProtocol) {
-        scoreLabel.text = "En yüksek puan \(output.highScore) puan"
+        scoreLabel.text = Constants.scoreLabel(point: output.highScore).text
+    }
+}
+
+// MARK: - Constants
+fileprivate enum Constants {
+    case photo
+    case scoreLabel(point:Int)
+    
+    var text: String {
+        switch self {
+        case .photo:
+            return "hbImage"
+        case .scoreLabel(point: let point):
+            return "En yüksek puan \(point) puan"
+        }
     }
 }

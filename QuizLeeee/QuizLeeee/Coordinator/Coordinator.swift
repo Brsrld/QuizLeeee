@@ -8,6 +8,7 @@
 import Foundation
 import UIKit
 
+// MARK: - CoordinatorProtocol
 final class Coordinator: CoordinatorProtocol {
     
     // MARK: Properties
