@@ -17,7 +17,7 @@ protocol QuizGameInteractorProtocol {
 final class QuizGameInteractor {
     
     var presenter: QuizGamePresenterProtocol?
-    private let service: QuizServiceable
+    private var service: QuizServiceable
     
     init(httpClient: HTTPClientProtocol) {
         self.service = QuizService(service: httpClient)

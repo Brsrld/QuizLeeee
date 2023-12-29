@@ -22,12 +22,19 @@ final class QuizGamePresenter {
     
     let interactor: QuizGameInteractorProtocol
     let view: QuizGameViewProtocol
-    var viewModel:QuizGameViewModel?
+    var userDefaults: UserDefaultsHelper
+    var viewModel: QuizGameViewModelProtocol?
     
     init(interactor: QuizGameInteractorProtocol, 
-         view: QuizGameViewProtocol) {
+         view: QuizGameViewProtocol,
+         userDefaults: UserDefaultsHelper,
+         viewModel: QuizGameViewModelProtocol) {
+        
         self.interactor = interactor
         self.view = view
+        self.userDefaults = userDefaults
+        self.viewModel = viewModel
+        self.viewModel?.delegate = self
     }
 }
 
@@ -40,14 +47,12 @@ extension QuizGamePresenter: QuizGamePresenterProtocol {
     
     
     func calculateQuestions(tag:Int) {
-        guard let viewModel = self.viewModel else { return }
-        view.calculateQuestions(tag: tag, viewModel)
+        view.calculateQuestions(tag: tag)
     }
     
     func handleQuestion(questions: [Question]) {
-        let viewModel = QuizGameViewModel(questions: questions, delegate: self)
-        self.viewModel = viewModel
-        view.questionOutput(viewModel)
+        viewModel?.question = questions
+        view.questionOutput()
     }
     
     func loading() {

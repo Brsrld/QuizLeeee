@@ -14,8 +14,6 @@ final class QuizGameUITests: XCTestCase {
     override func setUp() {
         continueAfterFailure = false
         app = XCUIApplication()
-        app.launchArguments = ["-ui-testing"]
-        app.launchEnvironment = ["-networking-success":"1"]
         app.launch()
     }
     

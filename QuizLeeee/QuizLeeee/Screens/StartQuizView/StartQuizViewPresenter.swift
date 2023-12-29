@@ -16,8 +16,8 @@ protocol StartQuizViewPresenterProtocol {
 // MARK: - StartQuizViewPresenter
 final class StartQuizViewPresenter {
     
-    let interactor: StartQuizViewInteractorProtocol
-    let view: StartQuizViewProtocol
+    private let interactor: StartQuizViewInteractorProtocol
+    private let view: StartQuizViewProtocol
     
     init(interactor: StartQuizViewInteractorProtocol,
          view: StartQuizViewProtocol) {

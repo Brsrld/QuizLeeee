@@ -10,11 +10,11 @@ import Kingfisher
 
 // MARK: - QuizGameViewProtocol
 protocol QuizGameViewProtocol {
-    func questionOutput(_ output: QuizGameViewModel)
+    func questionOutput()
     func errorOutput(_ output: String)
     func loading()
     func finished()
-    func calculateQuestions(tag:Int,_ output: QuizGameViewModel)
+    func calculateQuestions(tag:Int)
     func updateUI()
     func gameOver()
 }
@@ -115,8 +115,8 @@ extension QuizGameViewController: QuizGameViewProtocol {
         }
     }
     
-    func calculateQuestions(tag: Int, _ output: QuizGameViewModel) {
-        output.calculateGameFeatures(tag: tag)
+    func calculateQuestions(tag: Int) {
+        viewModel?.calculateGameFeatures(tag: tag)
     }
     
     func loading() {
@@ -131,8 +131,7 @@ extension QuizGameViewController: QuizGameViewProtocol {
         }
     }
     
-    func questionOutput(_ output: QuizGameViewModel) {
-        self.viewModel = output
+    func questionOutput() {
         DispatchQueue.main.async { [weak self] in
             self?.prepareUI()
         }

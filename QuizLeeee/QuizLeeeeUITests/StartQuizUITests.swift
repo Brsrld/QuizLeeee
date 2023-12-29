@@ -14,8 +14,6 @@ final class StartQuizUITests: XCTestCase {
     override func setUp() {
         continueAfterFailure = false
         app = XCUIApplication()
-        app.launchArguments = ["-ui-testing"]
-        app.launchEnvironment = ["-networking-success":"1"]
         app.launch()
     }
     
@@ -29,7 +27,7 @@ final class StartQuizUITests: XCTestCase {
     }
     
     func testLabel() throws {
-        let label = app.staticTexts.element(matching: .any, identifier: "startLabel").label
+        let label = app.staticTexts.element(matching: .any, identifier:"startLabel").label
         XCTAssertNotNil(label)
     }
     

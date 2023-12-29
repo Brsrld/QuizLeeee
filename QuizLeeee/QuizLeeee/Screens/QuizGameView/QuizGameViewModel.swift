@@ -9,10 +9,12 @@ import Foundation
 
 // MARK: - QuizGameViewModelProtocol
 protocol QuizGameViewModelProtocol {
-    var question: [Question] { get }
-    var questionIndex: Int { get }
+    var question: [Question] { get set }
+    var questionIndex: Int { get set }
     var totalPoint: Int { get }
     func saveScore()
+    func calculateGameFeatures(tag:Int)
+    var delegate: QuizGameViewModelOutput? { get set}
 }
 
 // MARK: - QuizGameViewModelOutput
@@ -23,23 +25,25 @@ protocol QuizGameViewModelOutput: AnyObject {
 
 // MARK: - QuizGameViewModel
 final class QuizGameViewModel {
-    
+    var question: [Question] = []
     private var questions:[Question] = []
     var questionIndex: Int = 0
     var totalPoint: Int = 0
     weak var delegate: QuizGameViewModelOutput?
+    var userDefaults: UserDefaultsHelper
     
-    init(questions: [Question],
-         delegate: QuizGameViewModelOutput?) {
-        self.questions = questions
-        self.delegate = delegate
+    init(userDefaults: UserDefaultsHelper) {
+        self.userDefaults = userDefaults
     }
-    
+}
+
+// MARK: - QuizGameViewModel QuizGameViewModelProtocol Extension
+extension QuizGameViewModel: QuizGameViewModelProtocol {
     func saveScore() {
-        guard let highScore = UserDefaultsHelper.getData(type: Int.self, 
+        guard let highScore = userDefaults.getData(type: Int.self,
                                                          forKey: .score) else { return }
         if highScore < totalPoint {
-            UserDefaultsHelper.setData(value: totalPoint,
+            userDefaults.setData(value: totalPoint,
                                        key: .score)
         }
     }
@@ -70,13 +74,5 @@ final class QuizGameViewModel {
         } else {
             delegate?.gameOver()
         }
-    }
-}
-
-// MARK: - QuizGameViewModel QuizGameViewModelProtocol Extension
-extension QuizGameViewModel: QuizGameViewModelProtocol {
-    
-    var question: [Question] {
-        questions
     }
 }

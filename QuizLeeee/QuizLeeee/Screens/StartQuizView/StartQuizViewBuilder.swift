@@ -12,6 +12,7 @@ import UIKit
 final class StartQuizViewBuilder {
     static func build(coordinator: Coordinator) -> StartQuizViewController {
         
+        let userDefaults = UserDefaultsHelper()
         let viewController = StartQuizViewController()
         let interactor = StartQuizViewInteractor()
         let router = StartQuizViewRouter(coordinator: coordinator)
@@ -21,6 +22,7 @@ final class StartQuizViewBuilder {
         viewController.router = router
         viewController.presenter = presenter
         interactor.presenter = presenter
+        interactor.userDafaults = userDefaults
         
         return viewController
     }
