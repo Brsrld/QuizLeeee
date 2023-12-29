@@ -5,7 +5,7 @@
 One feature, one module. For each module, **VIPER** has five different classes with distinct roles. No class goes beyond its sole purpose.
 Each of the letters in **VIPER** stand for a component of the architecture: View, Interactor, Presenter, Entity and Router.
 
-![viper_diagram](https://github.com/Brsrld/BombNews/assets/35069032/8b918f7e-7870-42cc-8156-695005f27729)
+![Blue and White Organization Charts Presentation-2_page-0001](https://github.com/Brsrld/QuizLeeee/assets/35069032/d6fa0604-ce0b-4c05-8d12-69dce270f397)
 
 # UI Testing and Unit Testing
 
