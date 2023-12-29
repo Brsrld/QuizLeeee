@@ -399,13 +399,12 @@
 		A5AEE8EF2B3C7AD100959BCF /* StartQuizView */ = {
 			isa = PBXGroup;
 			children = (
-				A5AEE8F02B3C7B0B00959BCF /* StartQuizViewController.swift */,
-				A5AEE8F12B3C7B0B00959BCF /* StartQuizViewController.xib */,
-				A5AEE8F42B3C7FC600959BCF /* StartQuizViewBuilder.swift */,
-				A5AEE9112B3CB8F800959BCF /* StartQuizViewRouter.swift */,
-				A503D5C32B3D89F100AB8E64 /* StartQuizViewPresenter.swift */,
-				A503D5C52B3D89FB00AB8E64 /* StartQuizViewInteractor.swift */,
-				A503D5C72B3D8DDA00AB8E64 /* StartQuizGameViewModel.swift */,
+				A5C62A7A2B3EEA31005F0CFF /* ViewModel */,
+				A5C62A792B3EEA26005F0CFF /* Interactor */,
+				A5C62A782B3EEA1D005F0CFF /* Presenter */,
+				A5C62A772B3EEA15005F0CFF /* Router */,
+				A5C62A762B3EEA0F005F0CFF /* Builder */,
+				A5C62A752B3EEA05005F0CFF /* ViewController */,
 			);
 			path = StartQuizView;
 			sourceTree = "<group>";
@@ -413,13 +412,12 @@
 		A5AEE8F62B3C81C500959BCF /* QuizGameView */ = {
 			isa = PBXGroup;
 			children = (
-				A5AEE8F82B3C81EA00959BCF /* QuizGameViewController.swift */,
-				A5AEE8F92B3C81EA00959BCF /* QuizGameViewController.xib */,
-				A5AEE8FE2B3C820E00959BCF /* QuizGameInteractor.swift */,
-				A5AEE8FC2B3C81FA00959BCF /* QuizGamePresenter.swift */,
-				A5AEE9002B3C821900959BCF /* QuizGameBuilder.swift */,
-				A5AEE9022B3C822900959BCF /* QuizGameViewModel.swift */,
-				A503D5CE2B3D9AA300AB8E64 /* QuizGameRouter.swift */,
+				A5C62A802B3EEA64005F0CFF /* Router */,
+				A5C62A7F2B3EEA5D005F0CFF /* ViewModel */,
+				A5C62A7E2B3EEA58005F0CFF /* Builder */,
+				A5C62A7D2B3EEA52005F0CFF /* Presenter */,
+				A5C62A7C2B3EEA4B005F0CFF /* Interactor */,
+				A5C62A7B2B3EEA3B005F0CFF /* ViewController */,
 			);
 			path = QuizGameView;
 			sourceTree = "<group>";
@@ -431,6 +429,104 @@
 				A5AEE90A2B3C982D00959BCF /* UIViewController+Extension.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		A5C62A752B3EEA05005F0CFF /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				A5AEE8F02B3C7B0B00959BCF /* StartQuizViewController.swift */,
+				A5AEE8F12B3C7B0B00959BCF /* StartQuizViewController.xib */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		A5C62A762B3EEA0F005F0CFF /* Builder */ = {
+			isa = PBXGroup;
+			children = (
+				A5AEE8F42B3C7FC600959BCF /* StartQuizViewBuilder.swift */,
+			);
+			path = Builder;
+			sourceTree = "<group>";
+		};
+		A5C62A772B3EEA15005F0CFF /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				A5AEE9112B3CB8F800959BCF /* StartQuizViewRouter.swift */,
+			);
+			path = Router;
+			sourceTree = "<group>";
+		};
+		A5C62A782B3EEA1D005F0CFF /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				A503D5C32B3D89F100AB8E64 /* StartQuizViewPresenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		A5C62A792B3EEA26005F0CFF /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+				A503D5C52B3D89FB00AB8E64 /* StartQuizViewInteractor.swift */,
+			);
+			path = Interactor;
+			sourceTree = "<group>";
+		};
+		A5C62A7A2B3EEA31005F0CFF /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				A503D5C72B3D8DDA00AB8E64 /* StartQuizGameViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		A5C62A7B2B3EEA3B005F0CFF /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				A5AEE8F82B3C81EA00959BCF /* QuizGameViewController.swift */,
+				A5AEE8F92B3C81EA00959BCF /* QuizGameViewController.xib */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		A5C62A7C2B3EEA4B005F0CFF /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+				A5AEE8FE2B3C820E00959BCF /* QuizGameInteractor.swift */,
+			);
+			path = Interactor;
+			sourceTree = "<group>";
+		};
+		A5C62A7D2B3EEA52005F0CFF /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				A5AEE8FC2B3C81FA00959BCF /* QuizGamePresenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		A5C62A7E2B3EEA58005F0CFF /* Builder */ = {
+			isa = PBXGroup;
+			children = (
+				A5AEE9002B3C821900959BCF /* QuizGameBuilder.swift */,
+			);
+			path = Builder;
+			sourceTree = "<group>";
+		};
+		A5C62A7F2B3EEA5D005F0CFF /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				A5AEE9022B3C822900959BCF /* QuizGameViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		A5C62A802B3EEA64005F0CFF /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				A503D5CE2B3D9AA300AB8E64 /* QuizGameRouter.swift */,
+			);
+			path = Router;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
