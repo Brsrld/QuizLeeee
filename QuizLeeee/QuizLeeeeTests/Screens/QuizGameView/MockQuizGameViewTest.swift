@@ -10,7 +10,6 @@ import XCTest
 
 final class MockQuizGameViewTest: XCTestCase {
     
-    private var view: QuizGameViewProtocol!
     var presenter: MockQuizGamePresenterTest?
     var viewModel: QuizGameViewModelProtocol?
     
@@ -25,13 +24,11 @@ final class MockQuizGameViewTest: XCTestCase {
     
     override func setUp() {
         super.setUp()
-        self.view = nil
         self.presenter = nil
         self.viewModel = nil
     }
     
     private func prepare(isError:Bool = false) {
-        let view = QuizGameViewController()
         let presenter = MockQuizGamePresenterTest()
         let interactor = MockQuizGameInteractorTest()
         let userDafaults = UserDefaultsHelper()
@@ -43,10 +40,8 @@ final class MockQuizGameViewTest: XCTestCase {
         presenter.interactor = interactor
         presenter.view = self
         viewModel.delegate = presenter
-        view.presenter = presenter
         
         self.presenter = presenter
-        self.view = view
         self.viewModel = viewModel
     }
     

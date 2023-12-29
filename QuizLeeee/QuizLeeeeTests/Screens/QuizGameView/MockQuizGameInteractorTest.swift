@@ -10,7 +10,6 @@ import XCTest
 
 final class MockQuizGameInteractorTest: XCTestCase {
     
-    var interactor: QuizGameInteractorProtocol?
     var presenter: QuizGamePresenterProtocol?
     var userDafaults: UserDefaultsHelper?
     var service: QuizServiceable?
@@ -23,25 +22,24 @@ final class MockQuizGameInteractorTest: XCTestCase {
     
     override func tearDown() {
         presenter = nil
-        interactor = nil
         userDafaults = nil
         super.tearDown()
     }
     
     private func prepare(isError:Bool = false) {
+        let servicePro = isError ? HttpClient(urlSession: nil)
+        : HttpClient()
+        let service = QuizService(service: servicePro)
         let presenter = MockQuizGamePresenterTest()
-        let interactor = QuizGameInteractor(httpClient: isError ? HttpClient(urlSession: nil)
-                                            : HttpClient())
         let view = MockQuizGameViewTest()
         let userDefaults = UserDefaultsHelper()
         
-        self.interactor = interactor
         self.presenter = presenter
         self.userDafaults = userDefaults
+        self.service = service
         
         presenter.interactor = self
         presenter.view = view
-        interactor.presenter = presenter
         
     }
     

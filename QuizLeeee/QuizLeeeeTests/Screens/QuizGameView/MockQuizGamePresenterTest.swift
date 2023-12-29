@@ -10,11 +10,10 @@ import XCTest
 
 final class MockQuizGamePresenterTest: XCTestCase {
     
-    var presenter: QuizGamePresenterProtocol!
-    var view: MockQuizGameViewTest!
-    var interactor: MockQuizGameInteractorTest!
+    var view: MockQuizGameViewTest?
+    var interactor: QuizGameInteractorProtocol?
     var viewModel: MockQuizGameViewModelTest?
-    var userDefaults: UserDefaultsHelper!
+    var userDefaults: UserDefaultsHelper?
     var isDelegate = false
     
     let fetchQuistionsExpectation = XCTestExpectation(description: "Quistions Expectation")
@@ -31,7 +30,6 @@ final class MockQuizGamePresenterTest: XCTestCase {
     }
     
     override func tearDown() {
-        presenter = nil
         view = nil
         interactor = nil
         viewModel = nil
@@ -44,128 +42,122 @@ final class MockQuizGamePresenterTest: XCTestCase {
         let view = MockQuizGameViewTest()
         let interactor = MockQuizGameInteractorTest()
         let viewModel = MockQuizGameViewModelTest()
-        let presenter = QuizGamePresenter(interactor: interactor,
-                                          view: view,
-                                          userDefaults: userDafaults, 
-                                          viewModel: viewModel)
-       
         viewModel.userDefaults = userDafaults
         viewModel.delegate = self
-        
+       
         view.viewModel = viewModel
         view.presenter = self
         
         interactor.presenter = self
-        interactor.interactor = interactor
         interactor.userDafaults = userDafaults
         interactor.service = QuizService(service: isError ? HttpClient(urlSession: nil) 
                                          : HttpClient())
         
         self.interactor = interactor
         self.view = view
-        self.presenter = presenter
         self.userDefaults = userDafaults
     }
     
     func test_fetch_question() {
         prepare()
-        view.presenter?.fetchQuestions()
+        view?.presenter?.fetchQuestions()
         wait(for: [fetchQuistionsExpectation], timeout: 2)
    }
     
     func test_loading() {
         prepare()
-        view.presenter?.fetchQuestions()
+        view?.presenter?.fetchQuestions()
         wait(for: [loadingExpectation], timeout: 2)
    }
     
     func test_finished() {
         prepare()
-        view.presenter?.fetchQuestions()
+        view?.presenter?.fetchQuestions()
         wait(for: [finishedExpectation], timeout: 2)
    }
     
     func test_handleError() {
         prepare(isError: true)
-        view.presenter?.fetchQuestions()
+        view?.presenter?.fetchQuestions()
         wait(for: [handleErrorExpectation ], timeout: 2)
    }
     
     func test_handleQuestions() {
         prepare()
-        view.presenter?.fetchQuestions()
+        view?.presenter?.fetchQuestions()
         wait(for: [handleQuestionsExpectation ], timeout: 2)
    }
     
     func test_calculateQuestions() {
         prepare()
-        view.presenter?.calculateQuestions(tag: 1)
-        wait(for: [calculateQuestionsExpectation ], timeout: 2)
+        self.isDelegate = true
+        view?.presenter?.fetchQuestions()
+        wait(for: [calculateQuestionsExpectation], timeout: 2)
    }
     
     func test_gameOver() {
         prepare()
         self.isDelegate = true
-        view.presenter?.fetchQuestions()
-        view.viewModel?.questionIndex = 7
+        view?.presenter?.fetchQuestions()
+        view?.viewModel?.questionIndex = 7
         wait(for: [gameOverExpectation], timeout: 2)
    }
     
     func test_UpdateQuestions() {
         prepare()
         self.isDelegate = true
-        view.presenter?.fetchQuestions()
+        view?.presenter?.fetchQuestions()
         wait(for: [updateQuestionsExpectation], timeout: 2)
    }
 }
 
 extension MockQuizGamePresenterTest: QuizGamePresenterProtocol {
     func handleError(error: String) {
-        view.errorOutput(error)
+        view?.errorOutput(error)
         XCTAssertNotNil(error)
         handleErrorExpectation.fulfill()
     }
     
     func handleQuestion(questions: [QuizLeeee.Question]) {
-        view.viewModel?.question = questions
+        view?.viewModel?.question = questions
         if isDelegate {
-            view.presenter?.calculateQuestions(tag: 1)
+            view?.presenter?.calculateQuestions(tag: 1)
         }
        
-        view.questionOutput()
+        view?.questionOutput()
         XCTAssertNotNil(questions)
         handleQuestionsExpectation.fulfill()
     }
     
     func loading() {
-        view.loading()
+        view?.loading()
         loadingExpectation.fulfill()
     }
     
     func finished() {
-        view.finished()
+        view?.finished()
         finishedExpectation.fulfill()
     }
     
     func calculateQuestions(tag: Int) {
-        view.calculateQuestions(tag: tag)
+        view?.calculateQuestions(tag: tag)
         calculateQuestionsExpectation.fulfill()
     }
     
     func fetchQuestions() {
-        interactor.fetchQuestion()
+        interactor?.fetchQuestion()
         fetchQuistionsExpectation.fulfill()
     }
 }
 
 extension MockQuizGamePresenterTest: QuizGameViewModelOutput {
     func updateQuestions() {
-        view.updateUI()
+        view?.updateUI()
         updateQuestionsExpectation.fulfill()
     }
     
     func gameOver() {
-        view.gameOver()
+        view?.gameOver()
         gameOverExpectation.fulfill()
     }
 }

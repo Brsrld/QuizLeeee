@@ -45,7 +45,6 @@ extension QuizGamePresenter: QuizGamePresenterProtocol {
         interactor.fetchQuestion()
     }
     
-    
     func calculateQuestions(tag:Int) {
         view.calculateQuestions(tag: tag)
     }
